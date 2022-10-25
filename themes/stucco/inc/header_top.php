@@ -4,6 +4,7 @@ if (!function_exists('compat_is_version_8')) {
         return interface_exists('\Concrete\Core\Export\ExportableInterface');
     }
 }
+$pageTitle = $pageTitle ?? null;
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php  echo Localization::activeLanguage()?>"> <![endif]-->
