@@ -4509,7 +4509,7 @@
 	              </record>
 	            </data>
 	          </block>
-	          <block type="faq" name="" custom-template="stucco_q&amp;a">
+	          <block type="faq" name="" custom-template="stucco_qa">
 	            <style>
 	              <backgroundColor/>
 	              <backgroundRepeat>no-repeat</backgroundRepeat>
