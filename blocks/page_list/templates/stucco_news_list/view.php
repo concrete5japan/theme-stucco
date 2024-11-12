@@ -17,9 +17,9 @@ $dh = Core::make('helper/date'); /* @var $dh \Concrete\Core\Localization\Service
         </div>
     <?php  endif; ?>
 
-    <?php  if ($rssUrl): ?>
+    <?php  if (isset($rssUrl) && $rssUrl){ ?>
         <a href="<?php  echo $rssUrl ?>" target="_blank" class="ccm-block-page-list-rss-feed"><i class="fa fa-rss"></i></a>
-    <?php  endif; ?>
+    <?php } ?>
 
     <ul class="ccm-block-page-list-pages news-list">
 

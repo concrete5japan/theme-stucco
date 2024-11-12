@@ -1,4 +1,10 @@
-<?php   defined("C5_EXECUTE") or die("Access Denied."); ?>
+<?php   defined("C5_EXECUTE") or die("Access Denied.");
+
+$headingWords = $headingWords ?? '';
+$headingType = $headingType ?? '';
+$decorationType = $decorationType ?? '';
+
+?>
 
 <div class="form-group">
     <?php   echo $form->label("headingWords", t("Heading Text")); ?>
