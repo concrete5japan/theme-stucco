@@ -3,6 +3,9 @@
 <?php
 $fp = FilePermissions::getGlobal();
 $tp = new TaskPermission();
+$DefinitionTerm = $DefinitionTerm ?? '';
+$DefinitionDescription = $DefinitionDescription ?? '';
+$LastBlock = $LastBlock ?? '';
 ?>
 
 <div class="form-group">
