@@ -3,52 +3,19 @@
 <?php
 $fp = FilePermissions::getGlobal();
 $tp = new TaskPermission();
+$editor = app('editor');
 ?>
 
 <div class="form-group">
     <?php echo $form->label("DefinitionTerm", t("Term")); ?>
     <?php echo (isset($btFieldsRequired) && in_array('DefinitionTerm', $btFieldsRequired) ? '<small class="required">' . t('Required') . '</small>' : null); ?>
-    <div id="wysiwyg-ft-DefinitionTerm"><?php echo $DefinitionTerm; ?></div>
-    <script type="text/javascript">
-        var CCM_EDITOR_SECURITY_TOKEN = "<?php echo Loader::helper('validation/token')->generate('editor')?>";
-        $(function () {
-            $("#wysiwyg-ft-DefinitionTerm").redactor({
-                minHeight: "500",
-                "concrete5": {
-                    filemanager: <?php echo $fp->canAccessFileManager()?>,
-                    sitemap: <?php  echo $tp->canAccessSitemap()?>,
-                    lightbox: true
-                },
-                "plugins": [
-                    "fontcolor", "concrete5"
-                ]
-            });
-            $("#wysiwyg-ft-DefinitionTerm").prev().css({opacity: "1"});
-        });
-    </script>
+    <?= $editor->outputBlockEditModeEditor('wysiwyg-ft-DefinitionTerm', $DefinitionTerm) ?>
 </div>
 
 <div class="form-group">
     <?php echo $form->label("DefinitionDescription", t("Description")); ?>
     <?php echo (isset($btFieldsRequired) && in_array('DefinitionDescription', $btFieldsRequired) ? '<small class="required">' . t('Required') . '</small>' : null); ?>
-    <div id="wysiwyg-ft-DefinitionDescription"><?php echo $DefinitionDescription; ?></div>
-    <script type="text/javascript">
-        var CCM_EDITOR_SECURITY_TOKEN = "<?php echo Loader::helper('validation/token')->generate('editor')?>";
-        $(function () {
-            $("#wysiwyg-ft-DefinitionDescription").redactor({
-                minHeight: "500",
-                "concrete5": {
-                    filemanager: <?php echo $fp->canAccessFileManager()?>,
-                    sitemap: <?php echo $tp->canAccessSitemap()?>,
-                    lightbox: true
-                },
-                "plugins": [
-                    "fontcolor", "concrete5"
-                ]
-            });
-            $("#wysiwyg-ft-DefinitionDescription").prev().css({opacity: "1"});
-        });
-    </script>
+    <?= $editor->outputBlockEditModeEditor('wysiwyg-ft-DefinitionDescription', $DefinitionDescription) ?>
 </div>
 
 <div class="form-group">
