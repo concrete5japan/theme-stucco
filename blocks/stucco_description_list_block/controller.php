@@ -57,7 +57,6 @@ class Controller extends BlockController
 
     public function add()
     {
-        $this->requireAsset('redactor');
         $this->requireAsset('core/file-manager');
         $this->set('btFieldsRequired', $this->btFieldsRequired);
     }
@@ -65,7 +64,6 @@ class Controller extends BlockController
     public function edit()
     {
         $db = \Database::get();
-        $this->requireAsset('redactor');
         $this->requireAsset('core/file-manager');
         $this->set('DefinitionTerm', LinkAbstractor::translateFromEditMode($this->DefinitionTerm));
         $this->set('btFieldsRequired', $this->btFieldsRequired);
