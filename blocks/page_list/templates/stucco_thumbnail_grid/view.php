@@ -27,11 +27,8 @@ $dh = Core::make('helper/date'); /* @var $dh \Concrete\Core\Localization\Service
         if ($useButtonForLink) {
             $hoverLinkText = $buttonLinkText;
         }
-//$date = $dh->formatDateTime($page->getCollectionDatePublic(), true);
-        //$date = $dh->date('Y年m月d日',strtotime($page->getCollectionDatePublic()));
-        $date = $dh->date( t('F d, Y'),strtotime($page->getCollectionDatePublic()));
-        $pubTime = strtotime($page->getCollectionDatePublic());
-        $new = ((time() - $pubTime) < (60 * 60 * 24 * 7)) ? '<span class="new">New</span>' : '';
+
+        $date = $dh->formatDateTime($page->getCollectionDatePublic(), true);
         ?>
 
         <div class="ccm-block-page-list-page-entry-grid-item">
