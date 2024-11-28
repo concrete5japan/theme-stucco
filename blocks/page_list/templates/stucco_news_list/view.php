@@ -17,9 +17,9 @@ $dh = Core::make('helper/date'); /* @var $dh \Concrete\Core\Localization\Service
         </div>
     <?php  endif; ?>
 
-    <?php  if ($rssUrl): ?>
+    <?php  if (isset($rssUrl) && $rssUrl){ ?>
         <a href="<?php  echo $rssUrl ?>" target="_blank" class="ccm-block-page-list-rss-feed"><i class="fa fa-rss"></i></a>
-    <?php  endif; ?>
+    <?php } ?>
 
     <ul class="ccm-block-page-list-pages news-list">
 
@@ -48,9 +48,7 @@ $dh = Core::make('helper/date'); /* @var $dh \Concrete\Core\Localization\Service
             $entryClasses = 'ccm-block-page-list-page-entry-horizontal';
         }
 
-        //$date = $dh->formatDateTime($page->getCollectionDatePublic(), true);
-		//$date = $dh->date('Y年m月d日',strtotime($page->getCollectionDatePublic()));
-		$date = $dh->date( t('F d, Y'),strtotime($page->getCollectionDatePublic()));
+        $date = $dh->formatDateTime($page->getCollectionDatePublic(), true);
 		$pubTime = strtotime($page->getCollectionDatePublic());
 		$new = ((time() - $pubTime) < (60 * 60 * 24 * 7)) ? '<span class="new">New</span>' : '';
 ?>

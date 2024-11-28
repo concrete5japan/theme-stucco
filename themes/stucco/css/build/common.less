@@ -54,6 +54,10 @@
 		    padding-left: 8px;
 		    padding-right: 8px;
 		}
+
+		.fade {
+			opacity: initial;
+		}
 	}
 
 	.btn-default {
@@ -482,11 +486,11 @@ h1.page-title {
 .link-mark {
 	&:before {
 		padding-right: 5px;
-		font-family: "FontAwesome", sans-serif;
+		font-family: "Font Awesome 5 Free", sans-serif;
 		font-style: normal;
-		font-weight: normal;
 		font-variant: normal;
 		content: "\f138";
+		font-weight: 900;
 	}
 }
 
@@ -655,11 +659,11 @@ h1.page-title {
 			&:before {
 				padding-right: 5px;
 				/* color: #777; */
-				font-family: "FontAwesome", sans-serif;
+				font-family: "Font Awesome 5 Free", sans-serif;
 				font-style: normal;
-				font-weight: normal;
 				font-variant: normal;
 				content: "\F139";
+				font-weight: 900;
 			}
 		}
 	}
@@ -681,11 +685,11 @@ h1.page-title {
 			&:before {
 				padding-right: 5px;
 				/* color: #777; */
-				font-family: "FontAwesome", sans-serif;
+				font-family: "Font Awesome 5 Free", sans-serif;
 				font-style: normal;
-				font-weight: normal;
 				font-variant: normal;
 				content: "\f137";
+				font-weight: 900;
 			}
 		}
 	}
@@ -707,11 +711,11 @@ h1.page-title {
 			&:before {
 				padding-right: 5px;
 				/* color: #777; */
-				font-family: "FontAwesome", sans-serif;
+				font-family: "Font Awesome 5 Free", sans-serif;
 				font-style: normal;
-				font-weight: normal;
 				font-variant: normal;
 				content: "\f138";
+				font-weight: 900;
 			}
 		}
 	}
@@ -722,7 +726,7 @@ h1.page-title {
 .ccm-block-share-this-page {
 	margin: 0 0 50px;
 
-	i {
+	a {
 		display: inline-block;
 		width: 30px;
 		height: 30px;
@@ -733,15 +737,19 @@ h1.page-title {
 			-moz-border-radius: 50%;
 		border-radius: 50%;
 		border: solid 2px @icon-background-color;
-		color: @icon-color;
 		font-size: 16px;
 		line-height: 28px;
 		&:hover {
-			color: @icon-background-color;
 			background-color: @icon-background-hover-color;
 				-webkit-transition: all .2s ease-in-out;
 				-moz-transition: all .2s ease-in-out;
 			transition: all .2s ease-in-out;
+			i,svg{
+				color: @icon-background-color;
+			}
+		}
+		i,svg{
+			color: @icon-color;
 		}
 	}
 
@@ -796,11 +804,11 @@ h1.page-title {
 		&:before {
 			padding-right: 5px;
 			/* color: #777; */
-			font-family: "FontAwesome", sans-serif;
+			font-family: "Font Awesome 5 Free", sans-serif;
 			font-style: normal;
-			font-weight: normal;
 			font-variant: normal;
 			content: "\f13a";
+			font-weight: 900;
 		}
 	}
 }

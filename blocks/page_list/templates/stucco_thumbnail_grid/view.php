@@ -2,6 +2,7 @@
 defined('C5_EXECUTE') or die("Access Denied.");
 $th = Core::make('helper/text');
 $c = Page::getCurrentPage();
+$dh = Core::make('helper/date'); /* @var $dh \Concrete\Core\Localization\Service\Date */
 ?>
 
 <div class="ccm-block-page-list-thumbnail-grid-wrapper">
@@ -27,6 +28,7 @@ $c = Page::getCurrentPage();
             $hoverLinkText = $buttonLinkText;
         }
 
+        $date = $dh->formatDateTime($page->getCollectionDatePublic(), true);
         ?>
 
         <div class="ccm-block-page-list-page-entry-grid-item">
@@ -34,7 +36,7 @@ $c = Page::getCurrentPage();
         <?php  if (is_object($thumbnail)): ?>
             <div class="ccm-block-page-list-page-entry-grid-thumbnail">
                 <a href="<?php  echo $url ?>" target="<?php  echo $target ?>"><?php
-                $img = Core::make('html/image', array($thumbnail));
+                $img = Core::make('html/image', ['f' => $thumbnail]);
                 $tag = $img->getTag();
                 $tag->addClass('img-responsive');
                 print $tag;
@@ -56,7 +58,7 @@ $c = Page::getCurrentPage();
                 <?php  } ?>
 
                 <?php  if ($includeDate): ?>
-                    <div class="ccm-block-page-list-date"><?php  echo $date?></div>
+                    <div class="ccm-block-page-list-date"><?php  echo $date ?></div>
                 <?php  endif; ?>
 
                 <?php  if ($includeDescription): ?>
