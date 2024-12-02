@@ -12,12 +12,18 @@ if (!function_exists('compat_is_version_8')) {
 <!--[if gt IE 8]><!--> <html class="no-js" lang="<?php  echo Localization::activeLanguage()?>"> <!--<![endif]-->
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <?php Loader::element('header_required', array('pageTitle' => isset($pageTitle) ? $pageTitle : ''));?>
-
+        <?php
+        View::element('header_required', [
+            'pageTitle' => isset($pageTitle) ? $pageTitle : '',
+            'pageDescription' => isset($pageDescription) ? $pageDescription : '',
+            'pageMetaKeywords' => isset($pageMetaKeywords) ? $pageMetaKeywords : ''
+        ]);
+        ?>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="<?php  echo $view->getThemePath()?>/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="<?php  echo $view->getThemePath()?>/css/bootstrap.css">
-        <?php echo $html->css($view->getStylesheet('main.less'))?>
+<!--        --><?php //echo $html->css($view->getStylesheet('main.less'))?>
+        <link href="<?=$view->getStylesheet('main.less')?>" rel='stylesheet' type='text/css'>
 
         <script src="<?php echo $view->getThemePath()?>/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
