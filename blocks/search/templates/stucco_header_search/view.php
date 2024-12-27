@@ -16,13 +16,21 @@ if (!isset($query) || !is_string($query)) {
 	<h3><?php  echo h($title)?></h3>
 <?php  endif; ?>
 
-<?php  if ($query === ''): ?>
-	<input name="search_paths[]" type="hidden" value="<?php  echo htmlentities($baseSearchPath, ENT_COMPAT, APP_CHARSET) ?>" />
-<?php  elseif (isset($_REQUEST['search_paths']) && is_array($_REQUEST['search_paths'])): ?>
-	<?php  foreach ($_REQUEST['search_paths'] as $search_path): ?>
-        <input name="search_paths[]" type="hidden" value="<?php  echo htmlentities($search_path, ENT_COMPAT, APP_CHARSET) ?>" />
-	<?php  endforeach; ?>
-<?php  endif; ?>
+    <?php
+    if ($query === '') {
+        ?><input name="search_paths[]" type="hidden"
+                 value="<?= htmlentities($baseSearchPath, ENT_COMPAT, APP_CHARSET) ?>" /><?php
+
+    } elseif (isset($search_paths) && is_array($search_paths)) {
+        foreach ($search_paths as $search_path) {
+            if (is_string($search_path)) {
+                ?><input name="search_paths[]" type="hidden"
+                         value="<?= htmlentities($search_path, ENT_COMPAT, APP_CHARSET) ?>" /><?php
+
+            }
+        }
+    }
+    ?>
     <input name="query" type="text" value="<?php  echo htmlentities($query, ENT_COMPAT, APP_CHARSET)?>" class="search-input" />
 <?php  if (isset($buttonText) && ($buttonText !== '')): ?>
 	<div class="search-btn-inner clearfix">

@@ -19,7 +19,7 @@ class Controller extends Package
 
     protected $appVersionRequired = '9.0.0';
 
-    protected $pkgVersion = '3.0.0-b1';
+    protected $pkgVersion = '3.0.0';
 
     protected $pkgAllowsFullContentSwap = true;
 
