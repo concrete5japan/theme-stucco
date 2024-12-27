@@ -5,9 +5,11 @@ namespace Concrete\Package\ThemeStucco;
 use Concrete\Core\Block\BlockType\BlockType;
 use Concrete\Core\Block\BlockType\Set as BlockTypeSet;
 use Concrete\Core\Entity\File\Image\Thumbnail\Type\Type;
+use Concrete\Core\Express\Controller\Manager;
 use Concrete\Core\Package\Package;
 use Concrete\Core\Page\Theme\Theme as PageTheme;
 use Doctrine\ORM\EntityManagerInterface;
+use Stucco\Express\Controller\FormController;
 
 defined('C5_EXECUTE') or die('Access Denied.');
 
@@ -20,6 +22,10 @@ class Controller extends Package
     protected $pkgVersion = '3.0.0-beta.1';
 
     protected $pkgAllowsFullContentSwap = true;
+
+    protected $pkgAutoloaderRegistries = [
+        'src' => '\Stucco',
+    ];
 
     public function getPackageDescription()
     {
@@ -67,5 +73,12 @@ class Controller extends Package
             $type->setWidth(1140);
             $type->save();
         }
+    }
+
+    public function on_start()
+    {
+        /** @var Manager $manager */
+        $manager = $this->app->make(Manager::class);
+        $manager->setStandardController(FormController::class);
     }
 }
