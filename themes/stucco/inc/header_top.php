@@ -22,9 +22,7 @@ if (!function_exists('compat_is_version_8')) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="<?php  echo $view->getThemePath()?>/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="<?php  echo $view->getThemePath()?>/css/bootstrap.css">
-<!--        --><?php //echo $html->css($view->getStylesheet('main.less'))?>
-        <link href="<?=$view->getStylesheet('main.less')?>" rel='stylesheet' type='text/css'>
-
+        <?php echo $html->css($view->getStylesheet('main.less')) ?>
         <script src="<?php echo $view->getThemePath()?>/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body class="<?php echo $c->getCollectionHandle(); ?><?php if ( !compat_is_version_8() ): ?><?php $u = new User(); if (Config::get('concrete.user.profiles_enabled') && $u->isRegistered()) { echo ' add-account-menu'; } ?><?php endif; ?>">
