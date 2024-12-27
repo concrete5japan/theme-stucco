@@ -1,0 +1,6 @@
+{
+    "name": "concrete5japan/theme_stucco",
+    "description": "Stucco - A Concrete CMS theme",
+    "type": "concrete5-package",
+    "license": "MIT"
+}
